@@ -34,18 +34,18 @@ export const VisitationFormModal: React.FC<ModalProps> = ({
 		defaultValues: editContent
 			? editContent
 			: {
-					id: "",
-					status: false,
-					data_visitation: "",
-					form_quantity: 0,
-					product_quantity: 0,
-					cep: "",
-					uf: "",
-					city: "",
-					neighborhood: "",
-					street: "",
-					number: "",
-				},
+				id: "",
+				status: false,
+				data_visitation: "",
+				form_quantity: 0,
+				product_quantity: 0,
+				cep: "",
+				uf: "",
+				city: "",
+				neighborhood: "",
+				street: "",
+				number: "",
+			},
 		mode: "onSubmit",
 	});
 
@@ -133,14 +133,14 @@ export const VisitationFormModal: React.FC<ModalProps> = ({
 				X
 			</button>
 			<div>
-				<h2>Agendar uma Visita</h2>
+				<h2>Cadastrar uma Visita</h2>
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<AppInput
 						{...register("data_visitation", { required: true })}
 						errors={errors.data_visitation}
 						type="date"
 						min={moment().format("YYYY-MM-DD")}
-						label="Data da Visita"
+						label="Data"
 					/>
 
 					<AppInput
@@ -204,12 +204,42 @@ export const VisitationFormModal: React.FC<ModalProps> = ({
 					/>
 					<div className="action">
 						{editContent ? (
-							<button type="submit" disabled={!isValid}>
-								Editar{" "}
+							<button
+								type="submit"
+								disabled={!isValid}
+								style={{
+									backgroundColor: "#000",
+									color: "#fff",
+									padding: "1rem 2.5rem",
+									border: "none",
+									borderRadius: "8px",
+									cursor: isValid ? "pointer" : "not-allowed",
+									fontWeight: "bold",
+									fontSize: "1.1rem",
+									transition: "0.2s",
+									width: "500px",
+								}}
+							>
+								Editar
 							</button>
 						) : (
-							<button type="submit" disabled={!isValid}>
-								Salvar{" "}
+							<button
+								type="submit"
+								disabled={!isValid}
+								style={{
+									backgroundColor: "#000",
+									color: "#fff",
+									padding: "1rem 2.5rem",
+									border: "none",
+									borderRadius: "8px",
+									cursor: isValid ? "pointer" : "not-allowed",
+									fontWeight: "bold",
+									fontSize: "1.1rem",
+									transition: "0.2s",
+									width: "500px",
+								}}
+							>
+								Salvar
 							</button>
 						)}
 					</div>

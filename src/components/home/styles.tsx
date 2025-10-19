@@ -32,4 +32,6 @@ export const SearchWrapper = styled.main`
   gap: 2rem;
   align-items:top;
   flex-wrap:wrap;
+  justify-content: center;
+  align-items: center;
 `;

@@ -17,7 +17,6 @@ export const AccordionWrapper = styled.section`
   details[open] > *:not(summary) {
     animation: details-show 300ms ease-in-out;
   }
-
 `;
 
 export const AccordionDetails = styled.details<{ percentage: number }>`
@@ -26,8 +25,14 @@ export const AccordionDetails = styled.details<{ percentage: number }>`
       border-radius: 0.5rem;
       transition: opacity 0.3s ease-in-out;
 
-      .finalize-date{
+      .finalize-date {
         margin: 0 0 0.8rem 0.8rem;
+        background-color: #000;
+        color: white;
+        padding: 0.6rem 1.0rem;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
       }
 
       .details-content-wrapper {
@@ -60,7 +65,6 @@ export const AccordionDetails = styled.details<{ percentage: number }>`
             justify-items: center;
           }
         }
-
         .actions {
           padding-top: 1rem;
           display: flex;
@@ -71,18 +75,19 @@ export const AccordionDetails = styled.details<{ percentage: number }>`
 
       summary {
       --bg: ${({ percentage }) =>
-				percentage < 60
-					? "var(--danger)"
-					: percentage > 90
-						? "var(--success)"
-						: "var(--default)"};
+    percentage < 60
+      ? "var(--danger)"
+      : percentage > 90
+        ? "var(--success)"
+        : "var(--default)"};
 
-				color: lch(from var(--bg) calc((49.44 - l) * infinity) 0 0);
+				color: white;
 				background: var(--bg);
         padding: 0.8rem 1rem;
         text-transform: capitalize;
         display: flex;
         justify-content: space-between;
+        border-radius: 8px;
       }
 
 

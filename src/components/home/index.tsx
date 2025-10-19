@@ -1,8 +1,6 @@
 import { useContext, useState } from "react";
 import { VisitationContext } from "../../context/visitations";
-import { ColorScheme } from "../global/colorScheme";
 import { AppInput } from "../global/form/appInput/input";
-import { AppSelect } from "../global/form/appSelect/input";
 import { VisitationFormModal } from "./components/visitationModal";
 import { VisitationsAccordion } from "./components/visitationsAccordion";
 import { HomeWrapper, SearchWrapper } from "./styles";
@@ -12,19 +10,6 @@ export const HomePage = () => {
 
 	return (
 		<HomeWrapper>
-			<div className="title">
-				<h1>Teste React</h1>
-				<div>
-					<ColorScheme />
-					<button
-						type="button"
-						onClick={() => setIsModalOpen(!isModalOpen)}
-						data-bg-default
-					>
-						Criar Visita
-					</button>
-				</div>
-			</div>
 			<FilterSection />
 			<VisitationsAccordion />
 			{isModalOpen && (
@@ -33,6 +18,29 @@ export const HomePage = () => {
 					setIsModalOpen={setIsModalOpen}
 				/>
 			)}
+			<div>
+				<button
+					type="button"
+					onClick={() => setIsModalOpen(!isModalOpen)}
+					data-bg-default
+					style={{
+						backgroundColor: "#000",
+						color: "#fff",
+						padding: "1rem 2.5rem",
+						border: "none",
+						borderRadius: "8px",
+						fontWeight: "bold",
+						fontSize: "1rem",
+						cursor: "pointer",
+						maxWidth: "100%",
+						whiteSpace: "nowrap",
+						overflow: "hidden",
+						textOverflow: "ellipsis",
+					}}
+				>
+					Cadastrar Visita
+				</button>
+			</div>
 		</HomeWrapper>
 	);
 };
@@ -60,22 +68,12 @@ const FilterSection = () => {
 	return (
 		<SearchWrapper>
 			<AppInput
-				label="Pesquise"
+				label="Busca Geral"
 				type="text"
 				name="search"
 				value={filter?.search}
 				onChange={updateFilter}
 			/>
-			<AppSelect
-				label="Status"
-				name="status"
-				value={filter?.status?.toString() || "null"}
-				onChange={updateFilter}
-			>
-				<option value="null">Escolha uma opçao</option>
-				<option value="true">Concluido</option>
-				<option value="false">Pendente</option>
-			</AppSelect>
 		</SearchWrapper>
 	);
 };
